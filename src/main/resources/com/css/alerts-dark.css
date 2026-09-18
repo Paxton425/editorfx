@@ -1,0 +1,60 @@
+/* ============================================================
+   ALERT WINDOWS (global polish)
+   ============================================================ */
+/* Base Dialog Window */
+.dialog-pane {
+    -fx-background-color: #1e1e1e;
+    -fx-text-fill: #d4d4d4;
+    -fx-font-family: "Segoe UI", "SF Pro Display", sans-serif;
+    -fx-font-size: 13px;
+}
+
+/* Header & Content Text */
+.dialog-pane .label {
+    -fx-text-fill: #cccccc;
+}
+
+.dialog-pane:header .header-panel {
+    -fx-background-color: #252526;
+    -fx-border-color: #3c3c3c;
+    -fx-border-width: 0 0 1 0;
+}
+
+.dialog-pane:header .header-panel .label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+/* Buttons */
+.dialog-pane .button {
+    -fx-background-color: #3c3c3c;
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 4px;
+    -fx-padding: 6 14 6 14;
+    -fx-cursor: hand;
+}
+
+.dialog-pane .button:hover {
+    -fx-background-color: #4a4a4a;
+}
+
+.dialog-pane .button:focused {
+    -fx-border-color: #007acc;
+    -fx-border-radius: 4px;
+    -fx-border-width: 1px;
+}
+
+/* Default/Primary Action Button (e.g. Save) */
+.dialog-pane .button:default {
+    -fx-background-color: #0e639c;
+}
+
+.dialog-pane .button:default:hover {
+    -fx-background-color: #1177bb;
+}
+
+/* Dialog Graphic/Icon background tinting */
+.dialog-pane .graphic-container {
+    -fx-padding: 10px;
+}

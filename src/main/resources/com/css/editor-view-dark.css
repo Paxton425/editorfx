@@ -1,0 +1,360 @@
+/* ============================================================
+   ROOT / GLOBAL
+   ============================================================ */
+.root {
+    -fx-font-family: "Segoe UI", "Inter", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 12.5px;
+    -fx-background-color: #1e1e1e;
+
+    /* Custom color tokens (reusable) */
+    -fx-base: #1e1e1e;
+    -fx-accent: #007acc;
+    -fx-focus-color: #007acc;
+    -fx-faint-focus-color: transparent;
+    -fx-control-inner-background: #252526;
+    -fx-control-inner-background-alt: #2d2d30;
+    -fx-text-base-color: #d4d4d4;
+    -fx-text-background-color: #d4d4d4;
+}
+
+/* ============================================================
+   BUTTONS (generic)
+   ============================================================ */
+.button {
+    -fx-background-color: #3a3d41;
+    -fx-text-fill: #e0e0e0;
+    -fx-background-radius: 4;
+    -fx-padding: 4 12 4 12;
+    -fx-font-size: 12px;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #45494e;
+}
+
+.button:pressed {
+    -fx-background-color: #094771;
+}
+
+/* Icon-only buttons (like the folder+ in explorer header) */
+.icon-button {
+    -fx-padding: 3 6 3 6;
+}
+
+/* ============================================================
+   MENU BAR
+   ============================================================ */
+.menu-bar {
+    -fx-background-color: #323233;
+    -fx-border-color: transparent transparent #252526 transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.menu-bar .label {
+    -fx-text-fill: #cccccc;
+    -fx-font-size: 12px;
+}
+
+.menu-bar .menu-button:hover,
+.menu-bar .menu-button:showing {
+    -fx-background-color: #094771;
+    -fx-background-radius: 4;
+}
+
+.menu-bar .menu-button:hover .label,
+.menu-bar .menu-button:showing .label {
+    -fx-text-fill: #ffffff;
+}
+
+/* Dropdown menus */
+.context-menu {
+    -fx-background-color: #252526;
+    -fx-border-color: #454545;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 8, 0, 0, 2);
+    -fx-padding: 4 0 4 0;
+}
+
+.menu-item {
+    -fx-padding: 5 20 5 12;
+}
+
+.menu-item .label {
+    -fx-text-fill: #cccccc;
+}
+
+.menu-item:focused {
+    -fx-background-color: #094771;
+}
+
+.menu-item:focused .label {
+    -fx-text-fill: #ffffff;
+}
+
+.menu-item .accelerator-text {
+    -fx-text-fill: #858585;
+}
+
+.separator:horizontal .line {
+    -fx-border-color: #3e3e42 transparent transparent transparent;
+}
+
+/* ============================================================
+   TOOLBAR
+   ============================================================ */
+.tool-bar {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #1e1e1e transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 4 8 4 8;
+    -fx-spacing: 4;
+}
+
+/* General Toolbar Button styling */
+.tool-bar .tool-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #cccccc;
+    -fx-font-size: 12px;
+    -fx-padding: 5 12 5 10;
+    -fx-background-radius: 4;
+    -fx-graphic-text-gap: 6;
+    -fx-cursor: hand;
+}
+
+.tool-bar .tool-button:hover {
+    -fx-background-color: #3e3e42;
+    -fx-text-fill: #ffffff;
+}
+
+.tool-bar .tool-button:pressed {
+    -fx-background-color: #094771;
+}
+
+/* Run button specificity */
+.tool-bar .run-button {
+    -fx-background-color: #292b29;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-cursor: hand;
+}
+
+.tool-bar .run-button:hover {
+    -fx-background-color: #3e3e42;
+}
+
+.tool-bar .run-button:pressed {
+    -fx-background-color: #636363;
+}
+
+
+/* ============================================================
+   SPLIT PANE
+   ============================================================ */
+.split-pane {
+    -fx-background-color: #1e1e1e;
+    -fx-padding: 0;
+}
+
+.split-pane > .split-pane-divider {
+    -fx-background-color: #252526;
+    -fx-padding: 0 1 0 1;
+}
+
+.split-pane > .split-pane-divider:hover {
+    -fx-background-color: #007acc;
+}
+
+/* ============================================================
+   PROJECT EXPLORER HEADER + TREE VIEW
+   ============================================================ */
+.label {
+    -fx-text-fill: #cccccc;
+}
+
+.tree-view {
+    -fx-background-color: #252526;
+    -fx-border-color: transparent;
+    -fx-padding: 4 0 4 0;
+}
+
+.tree-view .tree-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #cccccc;
+    -fx-padding: 3 8 3 4;
+    -fx-font-size: 12.5px;
+}
+
+.tree-view .tree-cell:hover {
+    -fx-background-color: #2a2d2e;
+}
+
+.tree-view .tree-cell:selected {
+    -fx-background-color: #094771;
+    -fx-text-fill: #ffffff;
+}
+
+.tree-view .tree-cell .arrow {
+    -fx-background-color: #cccccc;
+}
+
+/* ============================================================
+   TAB PANE (Editor)
+   ============================================================ */
+.tab-pane {
+    -fx-background-color: #1e1e1e;
+    -fx-tab-min-height: 30;
+    -fx-tab-max-height: 30;
+}
+
+.tab-pane > .tab-header-area {
+    -fx-background-color: #252526;
+    -fx-padding: 0;
+}
+
+.tab-pane > .tab-header-area > .tab-header-background {
+    -fx-background-color: #252526;
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab {
+    -fx-background-color: #2d2d30;
+    -fx-background-radius: 0;
+    -fx-padding: 4 14 4 14;
+    -fx-border-color: transparent;
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab .tab-label {
+    -fx-text-fill: #969696;
+    -fx-font-size: 12.5px;
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab:hover {
+    -fx-background-color: #323233;
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab:hover .tab-label {
+    -fx-text-fill: #ffffff;
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab:selected {
+    -fx-background-color: #1e1e1e;
+    -fx-border-color: #007acc transparent transparent transparent;
+    -fx-border-width: 2 0 0 0;
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab:selected .tab-label {
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+}
+
+/* Tab close (X) button */
+.tab-pane > .tab-header-area > .headers-region > .tab .tab-close-button {
+    -fx-background-color: #cccccc;
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab .tab-close-button:hover {
+    -fx-background-color: #d13438;
+}
+
+/* Dark themed welcome tab */
+.welcome-pane {
+    -fx-background-color: #1e1e1e;
+}
+
+.welcome-title {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #e6e6e6;
+}
+
+.welcome-subtitle {
+    -fx-font-size: 14px;
+    -fx-text-fill: #9aa0a6;
+}
+
+.welcome-button {
+    -fx-background-color: #1f6feb;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 8 18 8 18;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-cursor: hand;
+}
+
+.welcome-button:hover {
+    -fx-background-color: #388bfd;
+}
+
+.welcome-button:pressed {
+    -fx-background-color: #1a5fd0;
+}
+
+.welcome-button .font-icon {
+    -fx-icon-color: #cfe6ff;
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab .tab-close-button:hover {
+    -fx-background-color: #ff5555;
+}
+
+/* ============================================================
+   Console
+   ============================================================ */
+.console-header-box {
+    -fx-border-color: #303030;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding:  2 5 2 5;
+}
+
+/* ============================================================
+   STATUS BAR (bottom)
+   ============================================================ */
+.hbox {
+    /* leave generic, don't touch */
+}
+
+.status-bar,
+.hbox[style*="#007acc"] {
+    -fx-background-color: #007acc;
+}
+
+.label[style*="white"] {
+    -fx-text-fill: #ffffff !important;
+}
+
+/* ============================================================
+   SCROLLBARS (global polish)
+   ============================================================ */
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .track {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #424242;
+    -fx-background-radius: 4;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: #4f4f4f;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
+    -fx-shape: " ";
+    -fx-padding: 0;
+}

@@ -8,10 +8,10 @@ public class EditorDocument {
     private Path filePath;
     private boolean dirty;
 
-    public EditorDocument(String title, String content) {
+    public EditorDocument(String title, String content, boolean dirty) {
         this.title = title;
         this.content = content;
-        this.dirty = false;
+        this.dirty = dirty;
     }
 
     // Standard Getters / Setters
