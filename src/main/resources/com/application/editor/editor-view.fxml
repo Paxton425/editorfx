@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<BorderPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.application.editor.EditorController">
+
+    <!-- TOP SECTION: Menu Bar & Main Toolbar -->
+    <top>
+        <VBox BorderPane.alignment="CENTER">
+            <MenuBar>
+                <menus>
+                    <Menu text="File">
+                        <items>
+                            <MenuItem accelerator="Shortcut+N" onAction="#newFileHandler" text="New File" />
+                            <MenuItem accelerator="Shortcut+O" text="Open..." />
+                            <MenuItem accelerator="Shortcut+S" text="Save" />
+                            <SeparatorMenuItem />
+                            <MenuItem text="Exit" />
+                        </items>
+                    </Menu>
+                    <Menu text="Edit">
+                        <items>
+                            <MenuItem accelerator="Shortcut+Z" text="Undo" />
+                            <MenuItem accelerator="Shortcut+Y" text="Redo" />
+                            <SeparatorMenuItem />
+                            <MenuItem accelerator="Shortcut+X" text="Cut" />
+                            <MenuItem accelerator="Shortcut+C" text="Copy" />
+                            <MenuItem accelerator="Shortcut+V" text="Paste" />
+                        </items>
+                    </Menu>
+                    <Menu text="View">
+                        <items>
+                            <MenuItem text="Toggle Sidebar" />
+                            <MenuItem text="Toggle Terminal" />
+                        </items>
+                    </Menu>
+                    <Menu text="Help">
+                        <items>
+                            <MenuItem text="About" />
+                        </items>
+                    </Menu>
+                </menus>
+            </MenuBar>
+
+            <ToolBar>
+                <Button onAction="#newFileHandler" text="New">
+               <graphic>
+                  <FontIcon iconLiteral="mdi2f-file-plus" iconSize="18" />
+               </graphic></Button>
+                <Button onAction="#handleOpenFiles" text="Open">
+               <graphic>
+                  <FontIcon iconLiteral="mdi2f-folder-open" iconSize="18" />
+               </graphic></Button>
+                <Button onAction="#handleFileSave" text="Save">
+               <graphic>
+                  <FontIcon iconLiteral="mdi2f-floppy" iconSize="18" />
+               </graphic></Button>
+                <Button onAction="#handleUndo" text="undo">
+               <graphic>
+                  <FontIcon iconLiteral="mdi2u-undo" iconSize="16" />
+               </graphic></Button>
+                <Button onAction="#handleRedo" text="redo">
+               <graphic>
+                  <FontIcon iconLiteral="mdi2r-redo" iconSize="16" />
+               </graphic></Button>
+                <Region HBox.hgrow="ALWAYS" />
+                <Button style="-fx-background-color: #2681eb; -fx-text-fill: white;" text=" Run">
+               <graphic>
+                  <FontIcon fill="WHITE" iconLiteral="mdi2p-play" />
+               </graphic></Button>
+            </ToolBar>
+        </VBox>
+    </top>
+
+    <!-- CENTER SECTION: Split Workspace (Sidebar, Code Tabs, Terminal) -->
+    <center>
+        <SplitPane dividerPositions="0.2">
+            <!-- Left Panel: File Explorer Tree -->
+            <VBox minWidth="150.0">
+            <HBox prefHeight="28.0" prefWidth="197.0">
+               <children>
+                   <Label prefHeight="27.0" prefWidth="174.0" style="-fx-font-weight: bold; -fx-padding: 5px;" text="PROJECT EXPLORER" />
+                   <!-- THIS SPACER PUSHES THE BUTTON TO THE RIGHT -->
+                   <Region HBox.hgrow="ALWAYS" />
+                   <Button mnemonicParsing="false" onAction="#handleOpenProject">
+                        <graphic>
+                            <FontIcon iconLiteral="mdi2f-folder-plus-outline" iconSize="16" />
+                        </graphic>
+                        <HBox.margin>
+                            <Insets right="2.0" top="2.0" />
+                        </HBox.margin>
+                   </Button>
+               </children>
+            </HBox>
+                <TreeView fx:id="fileTreeView" VBox.vgrow="ALWAYS" />
+            </VBox>
+
+            <!-- Right Workspace: Editors + Bottom Console -->
+            <SplitPane dividerPositions="0.75" orientation="VERTICAL">
+
+                <!-- Tabbed Text Editor Area -->
+                <TabPane fx:id="editorTabPane" style="-fx-margin-top: 20px;" tabClosingPolicy="ALL_TABS">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets></TabPane>
+
+                <!-- Bottom Panel: Output / Terminal Console -->
+                <VBox minHeight="100.0">
+                    <HBox alignment="CENTER_LEFT" style="-fx-background-color: #f0f0f0; -fx-padding: 2 5 2 5;">
+                        <Label style="-fx-font-size: 11px; -fx-font-weight: bold;" text="Console Output" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button style="-fx-font-size: 10px;" text="Clear" />
+                    </HBox>
+                    <TextArea fx:id="consoleArea" editable="false" promptText="Execution output will appear here..." style="-fx-font-family: monospace; -fx-control-inner-background: #1e1e1e; -fx-text-fill: #00ff00;" VBox.vgrow="ALWAYS" />
+                </VBox>
+
+            </SplitPane>
+        </SplitPane>
+    </center>
+
+    <!-- BOTTOM SECTION: IDE Status Bar -->
+    <bottom>
+        <HBox alignment="CENTER_LEFT" spacing="10.0" style="-fx-background-color: #007acc; -fx-padding: 3 10 3 10;">
+            <Label fx:id="statusBarText" style="-fx-text-fill: white; -fx-font-size: 11px;" text="Ready" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label style="-fx-text-fill: white; -fx-font-size: 11px;" text="Ln 1, Col 1" />
+            <Label style="-fx-text-fill: white; -fx-font-size: 11px;" text="UTF-8" />
+        </HBox>
+    </bottom>
+
+</BorderPane>
